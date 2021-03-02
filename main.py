@@ -10,13 +10,14 @@ class Simulation:
         self.store_state = OrderedDict()
         self.register_map = {}
         self.customerpool = []
-        self.register_rates = {
-            'expert': 1,  # expert takes 1 min to process 1 item
-            'trainee': 2,  # trainee takes 2 min to process 1 item
-        }
+
 
         """The parameters below can be adjusted for testing."""
         self.trainee_count = 1  # Can be adjusted to see how much more time this process will take with more trainees.
+        self.register_rates = {  # Additional employee types can be added
+            'expert': 1,
+            'trainee': 2,
+        }
         self.testing = False
         self.testfilename = ''
 

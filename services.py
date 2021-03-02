@@ -1,4 +1,3 @@
-import sys
 import models
 
 def read_file(argv):
@@ -70,12 +69,12 @@ def add_customers(t, store_state, customerpool):
 
 
 
-def onemin_operation(store_state, register_map, register_rates):  # TODO cashier only operates on the first person in line!
+def onemin_operation(store_state, register_map, register_rates):
     for register in store_state:
         if len(store_state[register]) != 0:
             minperitem = register_rates[register_map[register].r_type]
             store_state[register][0].c_items -= 1/minperitem
-            if store_state[register][0].c_items == 0:
+            if store_state[register][0].c_items <= 0:
                 store_state[register].pop(0)
 
 def check_status(store_state, customerpool):
